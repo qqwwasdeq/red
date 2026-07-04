@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Finder | Minimalist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Age Finder</h1>
+            <p>Identify the oldest person among your entries.</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <div class="input-group">
+                    <input type="text" id="name-input" placeholder="Name" aria-label="Name">
+                    <input type="text" id="date-input" placeholder="DD/MM/YYYY" aria-label="Birth Date (DD/MM/YYYY)">
+                    <button id="add-btn">Add</button>
+                </div>
+                <p id="error-msg" class="error-msg"></p>
+            </section>
+
+            <section id="result-section" class="result-section hidden">
+                <div class="result-card">
+                    <h2>Oldest Person</h2>
+                    <div id="oldest-info">
+                        <span id="oldest-name"></span>
+                        <span id="oldest-age"></span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="list-section">
+                <h2>Entries</h2>
+                <ul id="entry-list">
+                    <!-- Entries will be added here -->
+                </ul>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
