@@ -3,50 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Определение возраста | Минимализм</title>
+    <title>Определение возраста | Мульти-вкладки</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="top-header">
-        <div id="countdown-timer">
-            До следующего дня рождения самого старшего: <span id="timer-display">--д --ч --м --с</span>
-        </div>
-    </header>
-
     <div class="app-container">
         <header class="main-header">
             <h1>Определение возраста</h1>
-            <p>Узнайте, кто самый старший в вашем списке.</p>
+            <nav class="tab-nav">
+                <button class="tab-btn active" data-tab="home">Главная</button>
+                <button class="tab-btn" data-tab="stats">Статистика</button>
+                <button class="tab-btn" data-tab="celebs">Знаменитости</button>
+            </nav>
         </header>
 
         <main>
-            <section class="input-section">
-                <div class="input-group">
-                    <input type="text" id="name-input" placeholder="Имя" aria-label="Имя">
-                    <input type="text" id="date-input" placeholder="ДД.ММ.ГГГГ" aria-label="Дата рождения (ДД.ММ.ГГГГ)" maxlength="10">
-                    <button id="add-btn">Добавить</button>
+            <!-- Tab: Главная -->
+            <section id="tab-home" class="tab-content active">
+                <div class="input-section">
+                    <div class="input-group">
+                        <input type="text" id="name-input" placeholder="Имя" aria-label="Имя">
+                        <input type="text" id="date-input" placeholder="ДД.ММ.ГГГГ" aria-label="Дата рождения (ДД.ММ.ГГГГ)" maxlength="10">
+                        <button id="add-btn">Добавить</button>
+                    </div>
+                    <p id="error-msg" class="error-msg"></p>
                 </div>
-                <p id="error-msg" class="error-msg"></p>
+
+                <div class="list-section">
+                    <h2>Список людей</h2>
+                    <ul id="entry-list">
+                        <!-- Записи будут здесь -->
+                    </ul>
+                </div>
             </section>
 
-            <section id="result-section" class="result-section hidden">
-                <div class="result-card">
-                    <h2>Самый старший</h2>
-                    <div id="oldest-info">
-                        <span id="oldest-name"></span>
-                        <span id="oldest-age-detailed"></span>
+            <!-- Tab: Статистика -->
+            <section id="tab-stats" class="tab-content">
+                <div id="no-data-stats" class="empty-state">
+                    Добавьте хотя бы одного человека на главной вкладке.
+                </div>
+                <div id="stats-container" class="hidden">
+                    <div class="result-card">
+                        <h2>Самый старший</h2>
+                        <div id="oldest-info">
+                            <span id="oldest-name"></span>
+                            <span id="oldest-age-detailed"></span>
+                        </div>
+                    </div>
+                    <div class="countdown-card">
+                        <h3>До следующего дня рождения</h3>
+                        <div id="timer-display">--д --ч --м --с</div>
                     </div>
                 </div>
             </section>
 
-            <section class="list-section">
-                <h2>Список людей</h2>
-                <ul id="entry-list">
-                    <!-- Записи будут добавлены здесь -->
-                </ul>
+            <!-- Tab: Знаменитости -->
+            <section id="tab-celebs" class="tab-content">
+                <div id="celeb-search-status" class="empty-state">
+                    Выберите человека из списка на главной вкладке, чтобы увидеть знаменитостей, рожденных в этот день.
+                </div>
+                <div id="celeb-results" class="hidden">
+                    <h2 id="celeb-title">Знаменитости, родившиеся в этот день</h2>
+                    <ul id="celeb-list">
+                        <!-- Знаменитости будут здесь -->
+                    </ul>
+                </div>
             </section>
         </main>
     </div>
