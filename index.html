@@ -1,45 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age Finder | Minimalist</title>
+    <title>Определение возраста | Минимализм</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="top-header">
+        <div id="countdown-timer">
+            До следующего дня рождения самого старшего: <span id="timer-display">--д --ч --м --с</span>
+        </div>
+    </header>
+
     <div class="app-container">
-        <header>
-            <h1>Age Finder</h1>
-            <p>Identify the oldest person among your entries.</p>
+        <header class="main-header">
+            <h1>Определение возраста</h1>
+            <p>Узнайте, кто самый старший в вашем списке.</p>
         </header>
 
         <main>
             <section class="input-section">
                 <div class="input-group">
-                    <input type="text" id="name-input" placeholder="Name" aria-label="Name">
-                    <input type="text" id="date-input" placeholder="DD/MM/YYYY" aria-label="Birth Date (DD/MM/YYYY)">
-                    <button id="add-btn">Add</button>
+                    <input type="text" id="name-input" placeholder="Имя" aria-label="Имя">
+                    <input type="text" id="date-input" placeholder="ДД.ММ.ГГГГ" aria-label="Дата рождения (ДД.ММ.ГГГГ)" maxlength="10">
+                    <button id="add-btn">Добавить</button>
                 </div>
                 <p id="error-msg" class="error-msg"></p>
             </section>
 
             <section id="result-section" class="result-section hidden">
                 <div class="result-card">
-                    <h2>Oldest Person</h2>
+                    <h2>Самый старший</h2>
                     <div id="oldest-info">
                         <span id="oldest-name"></span>
-                        <span id="oldest-age"></span>
+                        <span id="oldest-age-detailed"></span>
                     </div>
                 </div>
             </section>
 
             <section class="list-section">
-                <h2>Entries</h2>
+                <h2>Список людей</h2>
                 <ul id="entry-list">
-                    <!-- Entries will be added here -->
+                    <!-- Записи будут добавлены здесь -->
                 </ul>
             </section>
         </main>
